@@ -1,0 +1,21 @@
+Usage: %s split [-l <language>] [-p <parts>] [-t <threshold>] | combine [-l <language>] | [-h | -help]
+Version: %s
+
+bip39-splitter allows to split (and reconstruct) a BIP-39 mnemonic (also known as "seed phrase") using Shamir Secret
+Sharing method.
+
+Commands:
+    split   Splits a mnemonic (seed phrase) into multiple parts
+    combine Combines back parts into the original mnemonic (seed phrase)
+
+Parameters:
+    <language>: language of the BIP-39 mnemonic (seed phrase). One of:
+        %s
+    <parts>: number of parts to split the mnemonic (seed phrase) into
+    <threshold>: number of parts required to reconstruct the mnemonic (seed phrase) with command 'combine'
+
+IMPORTANT: the Shamir Secret Sharing (SSS) implementation can be considered secure as it was copied as-is from Hashicorp
+Vault at https://github.com/hashicorp/vault/blob/v1.19.0/shamir/shamir.go, however because all implementations of SSS
+tend to be slightly different (plus the fact that we add extra steps besides SSS), this software is not compatible with
+other SSS implementations such as the 'sss' tool on Linux. This means YOU NEED TO KEEP A COPY OF THIS PROGRAM TO
+RECONSTRUCT YOUR MNEMONIC IN THE FUTURE.
